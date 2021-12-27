@@ -7,6 +7,8 @@ RUN apk upgrade
 # https://pkgs.alpinelinux.org/package/edge/main/x86/python3
 ENV PYTHONUNBUFFERED=1
 RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
+#RUN python3 -m venv venv
+#RUN source venv/bin/activate
 RUN python3 -m ensurepip
 # make a directory for our application
 RUN mkdir -p /opt/exampleapp
