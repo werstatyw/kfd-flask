@@ -27,13 +27,16 @@ data:
     debug=true
     db=redis-service
 ---
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: flask
   labels:
     run: flask
 spec:
+  selector:
+    matchLabels:
+      app: flask
   template:
     metadata:
       labels:
