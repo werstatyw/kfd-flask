@@ -48,7 +48,7 @@ def test_deployment_ready(kube_v1_client):
     TOTAL_TIMEOUT_SECONDS = 300
     DELAY_BETWEEN_REQUESTS_SECONDS = 5
     REQUEST_TIMEOUT_SECONDS=2
-    apps_client = kubernetes.client.AppsV1beta2Api()
+    apps_client = kubernetes.client.AppsV1Api()
     now = time.time()
     while (time.time() < now+TOTAL_TIMEOUT_SECONDS):
         api_response = apps_client.list_namespaced_deployment("default",
