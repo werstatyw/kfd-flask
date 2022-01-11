@@ -52,7 +52,6 @@ def test_deployment_ready(kube_v1_client):
     now = time.time()
     while (time.time() < now+TOTAL_TIMEOUT_SECONDS):
         api_response = apps_client.list_namespaced_deployment("default",
-            include_uninitialized=True,
             timeout_seconds=REQUEST_TIMEOUT_SECONDS)
         print("name\tavail\tready")
         for i in api_response.items:
