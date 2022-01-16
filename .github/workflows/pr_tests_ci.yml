@@ -23,7 +23,7 @@ jobs:
         kubectl apply -f deploy/
     - name: Test with e2e
       run: |
-        apt-get install python3-venv
+        sudo apt-get install python3-venv
         python3 -m venv venv
         source venv/bin/activate
         pip3 install -r kfd-flask/e2e_tests/test-requirements.txt
