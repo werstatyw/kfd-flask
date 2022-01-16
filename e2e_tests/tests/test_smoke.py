@@ -48,11 +48,10 @@ def test_deployment_ready(kube_v1_client):
     TOTAL_TIMEOUT_SECONDS = 300
     DELAY_BETWEEN_REQUESTS_SECONDS = 5
     REQUEST_TIMEOUT_SECONDS=2
-    apps_client = kubernetes.client.AppsV1beta2Api()
+    apps_client = kubernetes.client.AppsV1Api()
     now = time.time()
     while (time.time() < now+TOTAL_TIMEOUT_SECONDS):
         api_response = apps_client.list_namespaced_deployment("default",
-            include_uninitialized=True,
             timeout_seconds=REQUEST_TIMEOUT_SECONDS)
         print("name\tavail\tready")
         for i in api_response.items:
@@ -98,9 +97,9 @@ def test_python_client_service_response(kube_v1_client):
     SERVICE_NAME="flask-service"
 
     try:
-        api_response = kube_v1_client.proxy_get_namespaced_service(SERVICE_NAME, NAMESPACE)
+        api_response = kube_v1_client.connect_get_namespaced_service_proxy(SERVICE_NAME, NAMESPACE)
         pprint(api_response)
-        api_response = kube_v1_client.proxy_get_namespaced_service_with_path(SERVICE_NAME, NAMESPACE, "/metrics")
+        api_response = kube_v1_client.connect_get_namespaced_service_proxy_with_path(SERVICE_NAME, NAMESPACE, "/metrics")
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling CoreV1Api->proxy_get_namespaced_service: %s\n" % e)
