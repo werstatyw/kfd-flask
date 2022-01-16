@@ -26,9 +26,9 @@ jobs:
         sudo apt-get install python3-venv
         python3 -m venv venv
         source venv/bin/activate
-        cd /home/runner/work/kfd-flask/kfd-flask
-        pip3 install -r e2e_tests/test-requirements.txt
-        pytest e2e_tests/tests -v        
+        cd /home/runner/work/kfd-flask/
+        pip3 install -r kfd-flask/e2e_tests/test-requirements.txt
+        pytest kfd-flask/e2e_tests/tests -v        
  #   - name: Test service URLs
  #     run: |
  #       minikube service list
