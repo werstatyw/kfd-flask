@@ -78,7 +78,7 @@ def test_pods_running(kube_v1_client):
                     return
         time.sleep(DELAY_BETWEEN_REQUESTS_SECONDS)
     assert False
-
+"""
 @pytest.mark.dependency(depends=["test_deployment_ready"])
 def test_service_response(kube_v1_client, kubectl_proxy):
     NAMESPACE="default"
@@ -88,7 +88,7 @@ def test_service_response(kube_v1_client, kubectl_proxy):
     r = requests.get(URI)
     assert r.status_code == 200
 
-"""
+
 @pytest.mark.dependency(depends=["test_deployment_ready"])
 def test_python_client_service_response(kube_v1_client):
     from pprint import pprint
