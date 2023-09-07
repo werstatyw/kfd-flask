@@ -6,6 +6,7 @@ RUN apk upgrade
 # add/install python3 and related libraries
 # https://pkgs.alpinelinux.org/package/edge/main/x86/python3
 RUN apk add python3
+RUN python3 -m ensurepip
 # make a directory for our application
 RUN mkdir -p /opt/exampleapp
 # move requirements file into the container
