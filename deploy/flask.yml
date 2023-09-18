@@ -1,10 +1,8 @@
-apiVersion: apps/v1
+apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
   name: flask
   labels:
-    app: flask
-  selector:
     app: flask
 spec:
   template:
