@@ -3,10 +3,10 @@ kind: Deployment
 metadata:
   name: flask
   labels:
-    run: flask
-spec:
+    app: flask
   selector:
-      app: flask
+    app: flask
+spec:
   template:
     metadata:
       labels:
