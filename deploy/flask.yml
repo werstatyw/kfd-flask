@@ -19,7 +19,7 @@ spec:
       containers:
       - name: flask
         image: quay.io/werstatyw/flask:0.1.1
-        env:
+      env:
         - name: LOG_LEVEL_KEY
           valueFrom:
             configMapKeyRef:
