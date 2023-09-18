@@ -5,6 +5,8 @@ metadata:
   labels:
     run: flask
 spec:
+  selector:
+      app: flask
   template:
     metadata:
       labels:
