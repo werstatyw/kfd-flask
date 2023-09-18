@@ -19,9 +19,6 @@ spec:
       containers:
       - name: flask
         image: quay.io/werstatyw/flask:0.1.1
-      envFrom:
-        - configMapRef:
-            name: example-config
         ports: 
         - containerPort: 5000
         volumeMounts:
@@ -38,3 +35,6 @@ spec:
               - path: "annotations"
                 fieldRef:
                   fieldPath: metadata.annotations
+      envFrom:
+        - configMapRef:
+            name: example-config
