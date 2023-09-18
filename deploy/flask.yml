@@ -35,6 +35,9 @@ spec:
               - path: "annotations"
                 fieldRef:
                   fieldPath: metadata.annotations
-      envFrom:
-        - configMapRef:
-            name: example-config
+      env:
+        - name: LOG_LEVEL_KEY
+          valueFrom:
+            configMapKeyRef:
+              name: example-config
+              key: log.level
