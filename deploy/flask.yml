@@ -24,7 +24,6 @@ spec:
           valueFrom:
             configMapKeyRef:
               name: example-config
-              Key: log.level
         ports: 
         - containerPort: 5000
         volumeMounts:
