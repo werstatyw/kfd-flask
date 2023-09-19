@@ -16,14 +16,14 @@ spec:
               name: example-config
               # Specify the key associated with the value
               key: log.level
-      volumeMounts:
+      volumes:
         - name: config
-          mountPath: /etc/kconfig
-          readOnly: true
-          volumes:
-            - name: config
-              configMap:
-                name: example-config
+          configMap:
+            name: example-config
+        volumeMounts:
+          - name: config
+            mountPath: /etc/kconfig
+            readOnly: true
 
 
       
