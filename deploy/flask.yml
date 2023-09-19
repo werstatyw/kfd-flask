@@ -35,3 +35,17 @@ spec:
               - path: "annotations"
                 fieldRef:
                   fieldPath: metadata.annotations
+      env:
+        # Define the environment variable
+        - name: LOG_LEVEL_KEY
+          valueFrom:
+            configMapKeyRef:
+              # The ConfigMap containing the value you want to assign to SPECIAL_LEVEL_KEY
+              name: example-config
+              # Specify the key associated with the value
+              key: log.level
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: database-creds
+              key: password.txt
