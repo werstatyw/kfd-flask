@@ -13,7 +13,7 @@ spec:
           valueFrom:
             configMapKeyRef:
               # The ConfigMap containing the value you want to assign to SPECIAL_LEVEL_KEY
-              name: example-config2
+              name: example-config
               # Specify the key associated with the value
               key: log.level
         - name: DB_PASSWORD
