@@ -39,6 +39,9 @@ spec:
           - name: podinfo
             mountPath: /podinfo
             readOnly: false
+          - name: secrets
+            mountPath: "/secrets"
+
       volumes:
         - name: podinfo
           downwardAPI:
@@ -49,3 +52,9 @@ spec:
               - path: "annotations"
                 fieldRef:
                   fieldPath: metadata.annotations
+        - name: secrets
+          secret:
+            secretName: database-creds
+            items:
+            - key: password.txt
+              path: db_password
