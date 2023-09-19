@@ -16,4 +16,15 @@ spec:
               name: example-config
               # Specify the key associated with the value
               key: log.level
+      volumeMounts:
+        - name: config
+          mountPath: /etc/kconfig
+          readOnly: true
+      volumes:
+        - name: config
+          configMap:
+            name: example-config
+
+
+      
   restartPolicy: Never
