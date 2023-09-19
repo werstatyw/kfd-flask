@@ -20,10 +20,10 @@ spec:
         - name: config
           configMap:
             name: example-config
-        volumeMounts:
-          - name: config
-            mountPath: /etc/kconfig
-            readOnly: true
+          volumeMounts:
+            - name: config
+              mountPath: /etc/kconfig
+              readOnly: true
 
 
       
