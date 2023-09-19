@@ -21,6 +21,20 @@ spec:
         image: quay.io/werstatyw/flask:0.1.1
         ports: 
         - containerPort: 5000
+        env:
+        # Define the environment variable
+        - name: LOG_LEVEL_KEY
+          valueFrom:
+            configMapKeyRef:
+              # The ConfigMap containing the value you want to assign to SPECIAL_LEVEL_KEY
+              name: example-config
+              # Specify the key associated with the value
+              key: log.level
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: database-creds
+              key: password.txt
         volumeMounts:
           - name: podinfo
             mountPath: /podinfo
@@ -35,17 +49,3 @@ spec:
               - path: "annotations"
                 fieldRef:
                   fieldPath: metadata.annotations
-      env:
-        # Define the environment variable
-        - name: LOG_LEVEL_KEY
-          valueFrom:
-            configMapKeyRef:
-              # The ConfigMap containing the value you want to assign to SPECIAL_LEVEL_KEY
-              name: example-config
-              # Specify the key associated with the value
-              key: log.level
-        - name: DB_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: database-creds
-              key: password.txt
