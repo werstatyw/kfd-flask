@@ -9,7 +9,7 @@ metadata:
       role: master
       tier: backend
 spec:
-#  type: NodePort
+  type: ClusterIP
   ports:
   - port: 6379
     targetPort: 6379
