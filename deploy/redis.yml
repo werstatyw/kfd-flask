@@ -23,8 +23,8 @@ kind: Deployment
 metadata:
   name: redis-master
 spec:
-    selector:
-      matchLabels:
+  selector:
+    matchLabels:
          app: redis
          role: master
          tier: backend
