@@ -10,19 +10,7 @@ spec:
   - port: 5000
   selector:
       app: flask
----
-# CONFIGURATION FOR THE FLASK APP
-kind: ConfigMap
-apiVersion: v1
-metadata:
-  name: flask-config
-data:
-  # debuging enabled or not
-  CONFIG_FILE: "/etc/flask-config/feature.flags"
-  feature.flags: |
-    [features]
-    greeting=hello
-    debug=true
+
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -44,14 +32,3 @@ spec:
         image: quay.io/kubernetes-for-developers/flask:0.2.0
         ports:
         - containerPort: 5000
-        envFrom:
-        - configMapRef:
-           name: flask-config
-        volumeMounts:
-          - name: config
-            mountPath: /etc/flask-config
-            readOnly: true
-      volumes:
-        - name: config
-          configMap:
-            name: flask-config
