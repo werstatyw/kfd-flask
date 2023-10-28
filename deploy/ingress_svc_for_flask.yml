@@ -40,3 +40,12 @@ spec:
     - hosts:
         - wersss.mooo.com
       secretName: tls-example
+  
+  ---
+kind: Service
+apiVersion: v1
+metadata:
+  name: flask
+spec:
+  type: ExternalName
+  externalName: flask.default.svc.cluster.local
