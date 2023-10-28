@@ -1,15 +1,38 @@
 ---
 # EXPORT SERVICE INTERFACE
-kind: Service
 apiVersion: v1
+kind: Service
 metadata:
-    name: flask-serviceTIXA
+  creationTimestamp: "2023-10-28T13:24:21Z"
+  labels:
+    run: flask
+  name: flask
+  namespace: default
+  resourceVersion: "746449"
+  uid: 32833689-0eb8-4dc0-bbc9-e51fd89d2648
 spec:
-  type: NodePort
+  allocateLoadBalancerNodePorts: true
+  clusterIP: 10.152.183.55
+  clusterIPs:
+  - 10.152.183.55
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
   ports:
-  - port: 5000
+  - nodePort: 31715
+    port: 5000
+    protocol: TCP
+    targetPort: 5000
   selector:
-      app: flask
+    app: flask
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer:
+    ingress:
+    - ip: 46.30.43.68
 
 ---
 apiVersion: apps/v1
