@@ -29,6 +29,13 @@ spec:
     - host: wersss.mooo.com
       http:
         paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: flask-service-clusterip
+                port:
+                  number: 5000
           - path: /flask
             pathType: Prefix
             backend:
