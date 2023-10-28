@@ -12,10 +12,37 @@ spec:
       app: flask
 
 ---
+---
+# EXPORT SERVICE INTERFACE
+kind: Service
+apiVersion: v1
+metadata:
+    name: flask-service-lb
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 5000
+  selector:
+      app: flask
+
+---
+---
+# EXPORT SERVICE INTERFACE
+kind: Service
+apiVersion: v1
+metadata:
+    name: flask-service-nodeport
+spec:
+  type: NodePort
+  ports:
+  - port: 5000
+  selector:
+      app: flask
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: flask-clustrip
+  name: flask
   labels:
     run: flask
 spec:
