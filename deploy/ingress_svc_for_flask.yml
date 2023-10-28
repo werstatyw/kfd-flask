@@ -41,7 +41,7 @@ spec:
         - wersss.mooo.com
       secretName: tls-example
   
-  ---
+---
 kind: Service
 apiVersion: v1
 metadata:
