@@ -6,7 +6,7 @@ metadata:
   creationTimestamp: "2023-10-28T13:24:21Z"
   labels:
     run: flask
-  name: flask
+  name: flask-lb
   namespace: default
   resourceVersion: "746449"
   uid: 32833689-0eb8-4dc0-bbc9-e51fd89d2648
