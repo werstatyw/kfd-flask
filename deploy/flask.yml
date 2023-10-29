@@ -56,6 +56,7 @@ spec:
   selector:
     matchLabels:
         app: flask
+  replicas: 3
   template:
     metadata:
       labels:
